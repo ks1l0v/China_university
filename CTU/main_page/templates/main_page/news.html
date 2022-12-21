@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{new.ar_name}}</title>
+</head>
+<body>
+<img src="{{new.ar_pic}}" width="80" height="80"><br>
+{{new.ar_name}}<br>
+{{new.ar_text}}<br><br>
+{{new.ar_date}}<br>
+
+<br><br>
+<form action="/send_com/{{new.id}}" method="post">
+    {% csrf_token %}
+    <input name="name" placeholder="Username"><br>
+    <textarea name="message" cols="30" rows="1" placeholder="Your comment"></textarea><br>
+    <button>Send</button>
+</form>
+Comments:<hr>
+{% for c in com %}
+<strong>{{c.com_name}}</strong> said:<br>
+{{c.com_text}}<br>
+<hr>
+<br>
+{% endfor %}
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>CTU study</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<style>
+a {text-decoration: none;}
+
+</style>
+</head>
+<body>
+<a href="/accounts/registration/">Log in</a><hr>
+{% for art in article %}
+
+    <div class="w3-card-4 w3-margin w3-white" style="width:100%" >
+        <div class="w3-container">
+          <h3><b>{{art.ar_name}}</b></h3>
+          <h5><span class="w3-opacity">{{art.ar_date}}</span></h5>
+        </div>
+
+        <div class="w3-container">
+          <p>{{art.ar_text|truncatechars:50}}</p>
+          <div class="w3-row">
+            <div class="w3-col m8 s12">
+              <p><button class="w3-button w3-padding-large w3-white w3-border"><b><a href="/news/{{art.id}}" >READ MORE »</a></b></button></p>
+            </div>
+            <div class=" ">
+              <p><span class="w3-padding-large w3-right"><b>Comments  </b> <span class="w3-tag">{{art.ar_com}}</span></span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr>
+{% endfor %}
+</body>
+</html>
